@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_N2</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .container{
+            position: relative;
+            margin: auto;
+            border: black 1px solid;
+            height: 550px;
+            width: 1000px;
+        }
+        .smallcontainer{
+            height: 432px;
+            width: 650px;
+            position: absolute;
+            top: 58px;
+            left: 174px;
+        }
+        .buttons{
+            position: absolute;
+            height: 50px;
+            width: 820px;
+            top: 249px;
+            left: 89px;
+            position: relative;
+        }
+        .next{
+            position: absolute;
+            right: 0px;
+            top: 15px;
+        }
+        .prev{
+            position: absolute;
+            top: 15px;
+        }
+        .slide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="w3-center">სლაიდერის აწყობა</h2>
+    
+    <div class="container">
+        <div class="smallcontainer">
+            <img class="slide" src="photos/N1.png" alt="N1" style="width:650px">
+            <img class="slide" src="photos/N2.jpg" alt="N2" style="width:650px">
+            <img class="slide" src="photos/N3.jpg" alt="N3" style="width:650px">
+            <img class="slide" src="photos/N4.jpg" alt="N4" style="width:650px">
+        </div>
+        <div class="buttons">
+            <button class="prev" onclick="plusDivs(-1)">PREV</button>
+            <button class="next" onclick="plusDivs(1)">NEXT</button>
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+        function showDivs(n) {
+            var x = document.getElementsByClassName("slide");
+            if (n > x.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = x.length}
+            for (var i = 0; i < 4; i++) {
+                x[i].style.display = "none";  
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+</body>
+</html>

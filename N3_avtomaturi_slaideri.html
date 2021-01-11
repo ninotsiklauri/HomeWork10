@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_N3</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .container{
+            position: relative;
+            margin: auto;
+            border: black 1px solid;
+            height: 550px;
+            width: 800px;
+        }
+        .topcontainer{
+            height: 102px;
+            width: 614px;
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            left: 90px;
+            top: 440px;
+        }
+        .photodiv{
+            height: 87px;
+            width: 130px;
+        }
+        .slider{
+            border: black 1px solid;
+            position: absolute;
+            height: 400px;
+            width: 612px;
+            left: 92px;
+            top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .photo{
+            display: none;
+        }
+        p{
+            position: absolute;
+            z-index: -1;
+            font-weight: bold;
+            font-size: 70px;
+        }
+        .demo{
+            border: 4px solid gray;
+        }
+        .demo2{
+            border: 4px solid rgb(15, 216, 15);
+        }
+    </style>
+</head>
+<body>
+    <h2 class="w3-center">ავტომატური სლაიდერი</h2>
+    
+    <div class="container">
+        <div class="slider">
+            <img class="photo" src="photos/N1.png" alt="N1">
+            <img class="photo" src="photos/N2.jpg" alt="N2">
+            <img class="photo" src="photos/N3.jpg" alt="N3">
+            <img class="photo" src="photos/N4.jpg" alt="N4">
+        </div>
+        <div class="topcontainer">
+            <div class="photodiv">
+                <img class="demo" src="photos/N1.png" alt="N1" style="width:130px;">
+            </div>
+            <div class="photodiv">
+                <img class="demo" src="photos/N2.jpg" alt="N2" style="width:130px;">
+            </div>
+            <div class="photodiv">
+                <img class="demo" src="photos/N3.jpg" alt="N3" style="width:130px;">
+            </div>
+            <div class="photodiv">
+                <img class="demo" src="photos/N4.jpg" alt="N4" style="width:130px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myIndex = 0;
+        var myIndex2 = 0;
+        change();
+        changeborder();
+        
+        function change() {
+            var x = document.getElementsByClassName("photo");
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block"; 
+            setTimeout(change, 2000); 
+        }
+        function changeborder(){
+            var y = document.getElementsByClassName("demo");
+            for (var i = 0; i < y.length; i++){
+                y[i].classList.add('demo');
+            }
+            myIndex2++;
+            if (myIndex2 > y.length) {myIndex2 = 1}
+            y[myIndex2-1].classList.add('demo2');
+            setTimeout(changeborder, 2000); 
+        }
+    </script>
+</body>
+</html>

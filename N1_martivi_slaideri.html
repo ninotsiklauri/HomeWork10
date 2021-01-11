@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10_N1</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .container{
+            position: relative;
+            margin: auto;
+            border: black 1px solid;
+            height: 550px;
+            width: 800px;
+        }
+        .topcontainer{
+            height: 102px;
+            width: 614px;
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            left: 91px;
+            top: 20px;
+        }
+        .photodiv{
+            border: solid 1px black;
+            height: 100px;
+            width: 150px;
+        }
+        .slider{
+            border: black 1px solid;
+            position: absolute;
+            height: 400px;
+            width: 612px;
+            left: 92px;
+            top: 130px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .photo{
+            display: none;
+            z-index: 2;
+        }
+        p{
+            position: absolute;
+            z-index: -1;
+            font-weight: bold;
+            font-size: 70px;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="w3-center">მარტივი სლაიდერის აწყობა</h2>
+    
+    <div class="container">
+        <div class="topcontainer">
+            <div class="photodiv">
+                <img src="photos/N1.png" alt="N1" style="width:150px;" onmouseover="currentPhoto(1)">
+            </div>
+            <div class="photodiv">
+                <img src="photos/N2.jpg" alt="N2" style="width:150px;" onmouseover="currentPhoto(2)">
+            </div>
+            <div class="photodiv">
+                <img src="photos/N3.jpg" alt="N3" style="width:150px;" onmouseover="currentPhoto(3)">
+            </div>
+            <div class="photodiv">
+                <img src="photos/N4.jpg" alt="N4" style="width:150px;" onmouseover="currentPhoto(4)">
+            </div>
+        </div>
+        <div class="slider">
+            <img class="photo" src="photos/N1.png" alt="N1">
+            <img class="photo" src="photos/N2.jpg" alt="N2">
+            <img class="photo" src="photos/N3.jpg" alt="N3">
+            <img class="photo" src="photos/N4.jpg" alt="N4">
+            <p>SLIDER</p>
+        </div>
+    </div>
+
+    <script>
+        function currentPhoto(n) {
+            showPhotos(slideIndex = n);
+        }
+        function showPhotos(n) {
+            var x = document.getElementsByClassName("photo");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (var i = 0; i < 4; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
+        }
+    </script>
+</body>
+</html>
